@@ -1,28 +1,22 @@
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-# class Solution:
-#     def reverseList(self, head):
-#         prev, curr = None, head
-#         while curr is not None:
-#             temp = curr.next
-#             curr.next = prev
-#             prev = curr
-#             curr = temp
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-#         return prev
+# iteratively
+class Solution:
+    def reverseList(self, head):
+        prev, curr = None, head
+        while curr is not None:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+
+        return prev
     
-# recursion
-# class Solution:
-#     def reverseList(self, head):
-        
-#         if head is None or head.next is None:
-#             return head
-        
-
-#         return 
-
+ 
+# recursively
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -33,19 +27,13 @@ class Solution:
         
         return new_head
     
-    def helper(self, next, head=None):
-        if next is None or next.next is None:
-            return head
+    def helper(self, head, node=None):
+        if head is None:
+            return node
 
-
-        temp = head.next.next
-        head.next.next = head
-        head.next.next = head
-        head.next = prev
-        prev = next
-        head = temp
-        # 
-        return self.helper(next, prev)
+        newHead = head.next
+        head.next = node
+        return self.helper(newHead, head)
         
         
     
@@ -60,7 +48,7 @@ def print_node(head):
         print(f'{head.val}')
         head = head.next
     
-# print_node(n1)
+
 sol = Solution()
 new_head = sol.reverseList(n1)
 print_node(new_head)
