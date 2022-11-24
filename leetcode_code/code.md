@@ -1,4 +1,0 @@
-# Hash map
-## two sums
-
-
